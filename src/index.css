@@ -1,8 +1,37 @@
+@import '~antd/dist/antd.css';
+
+/* FONTS */
+@font-face {
+  font-family: 'Lora';
+  src: local('Lora-Regular'), url(./fonts/Lora-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'LoraBold';
+  src: local('Lora-Bold'), url(./fonts/Lora-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'LoraItalic';
+  src: local('Lora-Italic'), url(./fonts/Lora-Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'NotoSerif';
+  src: local('NotoSerif-Regular'), url(./fonts/NotoSerif-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'NotoSerifBold';
+  src: local('NotoSerif-Bold'), url(./fonts/NotoSerif-Bold.ttf) format('truetype');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+  /* font-family: 'Lora', 'NotoSerif'; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +39,60 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.wrapword {
+  white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  white-space: pre-wrap;       /* css-3 */
+  /* word-wrap: break-word;       Internet Explorer 5.5+ */
+  white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+  /* word-break: break-all; */
+  white-space: normal;
+}
+
+/* MODIFICATIONS */
+.ant-table-column-title {
+  font-weight: 600;
+}
+
+.ant-table-row-no-expand .ant-table-row-expand-icon {
+  display: none;
+}
+
+.ant-pagination-item {
+  font-family: 'LoraBold' !important;
+}
+
+.ant-anchor-link-title {
+  padding: 4px 0;
+  font-family: 'LoraBold';
+}
+
+.ant-divider-horizontal {
+  margin: 14px 0;
+}
+
+.ant-carousel .slick-slide {
+  /* text-align: center; */
+  /* height: 60vh; */
+  /* height: 100%; */
+  /* line-height: 160px; */
+  /* background: #364d79; */
+  overflow: hidden;
+}
+
+.ant-carousel .slick-dots li {
+  background-color: #2660A4;
+}
+
+li.slick-active button {
+  background-color: #AD2E24 !important;
+}
+
+.animated-object {
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
