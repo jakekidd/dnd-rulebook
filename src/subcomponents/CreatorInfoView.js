@@ -150,6 +150,7 @@ export default class CreatorInfoView extends Component {
     var { abilityPoints } = this.state;
     abilityPoints += (statsCopy[stat] > value) ? 1 : -1;
     statsCopy[stat] = value;
+    this.props.didChangeItem('stats', statsCopy);
     this.setState({
       stats: statsCopy,
       abilityPoints
@@ -157,6 +158,8 @@ export default class CreatorInfoView extends Component {
   }
 
   handleChange = (item, value) => {
+    this.props.didChangeItem(item, value);
+    
     this.setState({
       [item]: value
     });
@@ -165,7 +168,11 @@ export default class CreatorInfoView extends Component {
   render() {
     const { isMobile, character } = this.props;
     const { skills } = character.class.proficiencies;
-    console.log(character.race);
+    
+    if (character.equipment.length !== this.state.selectedEquipment.length) {
+      this.handleChange('equipment', this.state.selectedEquipment);
+    }
+
     return (
       <div style={{height:'70vh',width:'100%',display:'flex',flexDirection:'column',overflow:'scroll',padding:'0 12px'}}>
         <Subtitle underline title={'Character Info'} gray={false} margin={true} />

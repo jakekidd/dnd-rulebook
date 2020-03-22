@@ -219,6 +219,7 @@ export default {
     image: 'halforc4.png',
     colors: ['#ff0084', '#33001b'],
     route: 'halforc',
+    isPlayable: true,
     details: [
       'Half-orcs feel emotion powerfully. Rage doesn’t just quicken their pulse, it makes their bodies burn. An insult stings like acid, and sadness saps their strength. But they laugh loudly and heartily, and simple bodily pleasures—feasting, drinking, wrestling, drumming, and wild dancing—fill their hearts with joy. They tend to be short-tempered and sometimes sullen, more inclined to action than contemplation and to fighting than arguing. The most accomplished half-orcs are those with enough self-control to get by in a civilized land.',
       'Orcs regard battle scars as tokens of pride and ornamental scars as things of beauty. Other scars, though, mark an orc or half-orc as a former slave or a disgraced exile. Any half-orc who has lived among or near orcs has scars, whether they are marks of humiliation or of pride, recounting their past exploits and injuries. Such a half-orc living among humans might display these scars proudly or hide them in shame.',
@@ -737,7 +738,7 @@ export default {
     name: 'Kenku',
     image: 'kenku3.png',
     route: 'kenku',
-    isPlayable: false,
+    isPlayable: true,
     details: [
       'A race of crow-like, wingless Avians that communicate through their ability to flawlessly imitate any sound they hear. These flightless people often form thieves guilds, referred to as "flocks" in major cities and quite often work as burglars, pickpockets, and assassins.',
       `Kenku were first driven to their current state of existence by greed and thievery, and such traits remain in their culture to this day. The Kenku are spread far and wide, operating in small flocks, each one independent from the rest, often acting as thieves, bandits, forgers and other such unlawful practitioners. Nevertheless, each flock has its own laws and codes of conduct. Betrayal of these laws often involve the bearing of large wooden wings, a symbol of shame of the Kenku's lost grace, and a crime so heinous that calls for execution will end with the offender tossed from a tall cliff.`,

@@ -12,10 +12,11 @@ const { Paragraph } = Typography;
 const RACES = Object.keys(races);
 
 export default function CreatorRaceView({ didChangeItem, isMobile }) {
+  const filteredRaces = RACES.filter(r => races[r].isPlayable);
   return (
     <CreatorCarousel
-      afterChange={index => didChangeItem('race', races[RACES[index]])}
-      slides={RACES.filter(r => races[r].isPlayable).map((k,i) => {
+      afterChange={index => didChangeItem('race', races[filteredRaces[index]])}
+      slides={filteredRaces.map((k,i) => {
         const raceData = races[k];
         const image = require(`../assets/images/races/${raceData.image}`);
         const iconSize = isMobile ? 200 : 248;
@@ -39,7 +40,7 @@ export default function CreatorRaceView({ didChangeItem, isMobile }) {
                     style={{
                       width: iconSize,
                       height: iconSize,
-                      filter: 'drop-shadow(0 3px 3px gray) blur(0.5px) grayscale(10%) contrast(300%) brightness(0.8)',
+                      filter: 'drop-shadow(0 3px 3px gray) blur(0.5px) grayscale(10%) contrast(240%) brightness(1.0)',
                       borderRadius: 2,
                       objectFit: 'contain',
                       // borderLeft: '1px solid rgba(0,0,0,0.1)',

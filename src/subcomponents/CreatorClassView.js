@@ -28,7 +28,8 @@ export default function CreatorClassView({ isMobile, didChangeItem, character })
       )}
     </div>
   );
-  if (!character.class) {
+
+  if (character.class === null) {
     // Set the class to the first item.
     didChangeItem('class', classes[CLASSES[0]]);
   }
@@ -86,9 +87,9 @@ export default function CreatorClassView({ isMobile, didChangeItem, character })
                 <div style={{margin:'12px 0',textAlign:'left'}}>
                   <div>
                     {renderStatistics([
-                      ['Armor:', classData.proficiencies.armor.map(w => w.text)],
-                      ['Weapons:', classData.proficiencies.weapons.map(w => w.text)],
-                      ['Skills:', classData.proficiencies.skills.options.map(w => w.text)]
+                      ['Armor:', classData.proficiencies.armor.map(w => w.text).join(', ')],
+                      ['Weapons:', classData.proficiencies.weapons.map(w => w.text).join(', ')],
+                      ['Skills:', classData.proficiencies.skills.options.map(s => s.name).join(', ')]
                     ])}
                   </div>
                 </div>

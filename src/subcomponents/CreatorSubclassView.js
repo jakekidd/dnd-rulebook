@@ -55,6 +55,11 @@ export default function CreatorSubclassView({ didChangeItem, character }) {
   }
 
   const ARCHETYPES = character.class.subclass.archetypes;
+  if (character.subclass === null) {
+    // Set the subclass to the first item.
+    didChangeItem('subclass', ARCHETYPES[Object.keys(ARCHETYPES)[0]]);
+  }
+  
   return (
     <CreatorCarousel
       afterChange={(value) => didChangeItem('subclass', ARCHETYPES[value])}

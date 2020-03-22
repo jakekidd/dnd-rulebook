@@ -6,6 +6,7 @@ import {
   Divider,
   Steps } from 'antd';
 import Subtitle from '../subcomponents/Subtitle';
+import CreatorCharacterView from '../subcomponents/CreatorCharacterView';
 import CreatorClassView from '../subcomponents/CreatorClassView';
 import CreatorRaceView from '../subcomponents/CreatorRaceView';
 import CreatorSubclassView from '../subcomponents/CreatorSubclassView';
@@ -13,7 +14,7 @@ import CreatorSpellView from '../subcomponents/CreatorSpellView';
 import CreatorInfoView from '../subcomponents/CreatorInfoView';
 
 //DEBUG:
-import CLASSES_DEBUG from '../assets/data/classes';
+// import CLASSES_DEBUG from '../assets/data/classes';
 import RACES_DEBUG from '../assets/data/races';
 
 // import WEAPONS from '../assets/data/weapons';
@@ -61,11 +62,12 @@ export default class CreatorIndex extends Component {
       currentStep: -1,
       character: {
         level: 1,
-        class: CLASSES_DEBUG.BARBARIAN,
+        class: null,
         subclass: null,
         race: RACES_DEBUG.HUMAN,
         subrace: null,
-        name: '',
+        firstName: '',
+        lastName: '',
         stats: {
           'STR': 10,
           'DEX': 10,
@@ -100,7 +102,6 @@ export default class CreatorIndex extends Component {
   }
 
   didChangeItem = (name, value) => {
-    console.log(name, value);
     var characterCopy = Object.assign({}, this.state.character);
     characterCopy[name] = value;
     this.setState({ character: characterCopy });
@@ -112,30 +113,38 @@ export default class CreatorIndex extends Component {
 
   render() {
     const { currentStep, window, character } = this.state;
+    console.log('CURRENT CHAR:', character);
+
     const filteredSteps = character.class ? STEPS.filter(s => {
       if (s.title === 'Spells') {
         if (character.class.spellcasting) {
           const spellsKnown = character.class.levelTable.rows[character.level - 1].spellsKnown;
           if (spellsKnown && spellsKnown !== '-') {
             return true;
+          } else if (character.class.title === 'Wizard' || character.class.title === 'Druid'){
+            return true;
           }
         }
         return false;
+      }
+      if (s.title === 'Subclass') {
+        if (character.level < character.class.subclass.levels[0]) {
+          return false;
+        }
       }
       return true;
     }) : STEPS;
     return (
       <div style={{width:'100%',minHeight:'78vh',display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
         {currentStep === filteredSteps.length ? (
-          <div>
-            
-          </div>
+          <CreatorCharacterView character={this.state.character} />
         ) : currentStep === -1 ? (
           <div>
             <Row>
              <Subtitle title={'Character Creator'} gray={false} underline />
               <p>
-                Welcome to character creator! This is a tool to simplify the development of your unique character. By the end of this step-by-step process, you will have everything you need to get started.
+                Welcome to character creator! This is a tool to simplify the development of your unique character.
+                By the end of this step-by-step process, you will have everything you need to get started.
               </p>
               <p>
                 Enter the starting level of your character to begin.
