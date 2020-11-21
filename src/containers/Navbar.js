@@ -33,9 +33,9 @@ export default class Navbar extends Component {
               // MenuItem('worldmap', 'flag', 'WORLDMAP'),
               MenuItem('combat', 'fire', 'COMBAT'),
               MenuItem('adventure', 'compass', 'ADVENTURE'),
-              // MenuItem('class', 'deployment-unit', 'CLASS'),
-              // MenuItem('race', 'meh', 'RACE'),
-              // MenuItem('spells', 'book', 'SPELLS'),
+              MenuItem('class', 'deployment-unit', 'CLASS'),
+              MenuItem('race', 'meh', 'RACE'),
+              MenuItem('spells', 'book', 'SPELLS'),
               // MenuItem('deities', 'thunderbolt', 'DEITIES'),
               MenuItem('creator', 'experiment', 'CREATOR'),
             ].map(i => (

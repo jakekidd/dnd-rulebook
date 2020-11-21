@@ -12,12 +12,6 @@ export default function Page(props) {
     <Layout>
       <Content style={{padding:`0 ${theme.MAIN_SIDE_GUTTER_PADDING}px`,marginTop:theme.HEADER_HEIGHT,backgroundImage:`url(${bgImage})`}}>
         <div style={{background:'#fff',padding:'24px',minHeight:`calc(100vh - ${FOOTER_HEIGHT + theme.HEADER_HEIGHT}px)`}}>
-          {/* TODO: Configure breadcrumbs? */}
-          {/* <Breadcrumb style={{margin:'16px 0'}}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb> */}
           {content}
         </div>
       </Content>
